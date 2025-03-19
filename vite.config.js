@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "http://163.172.74.154:8000",
+        target: "https://cors-anywhere.herokuapp.com/http://163.172.74.154:8000",
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ""),
       },

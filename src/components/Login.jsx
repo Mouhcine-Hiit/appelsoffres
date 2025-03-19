@@ -25,7 +25,7 @@ const Login = ({ onLoginSuccess }) => {
 
     const loginApi = async (username, password) => {
         try {
-            const res = await fetch('http://163.172.74.154:8003/login', {
+            const res = await fetch('https://cors-anywhere.herokuapp.com/http://163.172.74.154:8003/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/x-www-form-urlencoded',

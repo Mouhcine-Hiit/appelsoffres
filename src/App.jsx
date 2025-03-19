@@ -96,7 +96,7 @@ function App() {
   const fetchTendersWithParams = async (params, page) => {
     try {
       setLoading(true);
-      let url = "http://163.172.74.154:8000/annonces";
+      let url = "https://cors-anywhere.herokuapp.com/http://163.172.74.154:8000/annonces";
       const queryParams = [];
 
       // Add department parameter if available
@@ -146,7 +146,7 @@ function App() {
 
   const fetchProtectedData = async (token) => {
     try {
-      const response = await fetch("http://163.172.74.154:8003/protected", {
+      const response = await fetch("https://cors-anywhere.herokuapp.com/http://163.172.74.154:8003/protected", {
         method: "GET",
         headers: {
           "Authorization": `Bearer ${token}`, // Include the token in the Authorization header
