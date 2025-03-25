@@ -11,7 +11,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "proxy": "http://163.172.74.154:8000"
+    "proxy": "https://tenders.milkiya.ma"
   },
   "dependencies": {
     "bootstrap": "^5.3.3",

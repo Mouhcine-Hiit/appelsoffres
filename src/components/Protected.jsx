@@ -14,7 +14,7 @@ const Protected = () => {
       }
 
       try {
-        const response = await fetch("https://cors-anywhere.herokuapp.com/http://163.172.74.154:8003/protected", {
+        const response = await fetch("https://tenders.milkiya.ma/protected", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
