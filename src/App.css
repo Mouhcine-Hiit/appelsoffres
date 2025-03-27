@@ -277,4 +277,19 @@ span.badge.bg-primary.rounded-pill {
 .tender-card:hover {
     background: rgba(16, 22, 33, 0.9); /* Darker on hover */
 }
-
+.button-search-res button {
+  width: 20%;
+  margin: 0 5px;
+}
+@media (max-width:768px){
+  img.logo-offres {
+    width: 80%;
+  }
+  .button-search-res button {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .button-search-res .d-grid.d-md-flex.justify-content-center {
+    justify-content: inherit !important;
+  }
+}

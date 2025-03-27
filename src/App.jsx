@@ -95,42 +95,52 @@ function App() {
   // Function to fetch tenders with parameters and pagination
   const fetchTendersWithParams = async (params, page) => {
     try {
-      setLoading(true);
-      let url = "https://tenders.milkiya.ma/annonces";
-      const queryParams = [];
+        setLoading(true);
+        let url = "https://tenders.milkiya.ma/annonces";
+        const queryParams = [];
 
-      // Add department parameter if available
-      if (params.department) {
-        queryParams.push(`departement=${params.department}`);
-      }
+        // Add department parameter if available
+        if (params.department) {
+            queryParams.push(`departement=${params.department}`);
+        }
 
-      // Add pagination parameters
-      queryParams.push(`page=${page}`);
-      queryParams.push(`limit=${itemsPerPage}`);
+        // Add keywords parameter if available
+        if (params.keywords) {
+            queryParams.push(`mots_cles=${params.keywords}`);
+        }
 
-      if (queryParams.length > 0) {
-        url += `?${queryParams.join("&")}`;
-      }
+        // Add date parameter if available
+        if (params.date) {
+            queryParams.push(`date_limite=${params.date}`); // Added date filter
+        }
 
-      console.log("Fetching data from:", url); // Debug the URL
+        // Add pagination parameters
+        queryParams.push(`page=${page}`);
+        queryParams.push(`limit=${itemsPerPage}`);
 
-      const response = await fetch(url);
+        if (queryParams.length > 0) {
+            url += `?${queryParams.join("&")}`;
+        }
 
-      if (!response.ok) {
-        throw new Error("Failed to fetch filtered data");
-      }
+        console.log("Fetching data from:", url); // Debug the URL
 
-      const data = await response.json();
-      setFilteredTenders(data.annonces || []); // Use empty array if annonces is undefined
-      setTotalItems(data.total || 0); // Use 0 if total is undefined
-      setTenders(data.annonces || []); // Update the main tenders state as well
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch filtered data");
+        }
+
+        const data = await response.json();
+        setFilteredTenders(data.annonces || []); // Use empty array if annonces is undefined
+        setTotalItems(data.total || 0); // Use 0 if total is undefined
+        setTenders(data.annonces || []); // Update the main tenders state as well
     } catch (error) {
-      console.error("Error fetching filtered data:", error);
-      setError("Échec du chargement des données. Veuillez réessayer.");
+        console.error("Error fetching filtered data:", error);
+        setError("Échec du chargement des données. Veuillez réessayer.");
     } finally {
-      setLoading(false);
+        setLoading(false);
     }
-  };
+};
 
   const handleReset = () => {
     setSearchParams({

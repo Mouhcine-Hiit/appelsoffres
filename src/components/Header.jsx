@@ -38,7 +38,7 @@ const Header = ({ toggleDarkMode, isDarkMode, onLogout }) => {
       <div className="container py-3">
         <div className="d-flex justify-content-between align-items-center">
           <div>
-            <img 
+            <img class="logo-offres"
               src={isDarkMode ? logoWhite : logo} // Use white logo in dark mode
               alt="Logo d'Appels d'Offres"
             />
